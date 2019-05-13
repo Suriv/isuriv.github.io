@@ -18,19 +18,21 @@
 <title>iSuriv</title>
 </head>
 <body>
-<img src="assets/svg/robot.svg"/>
+<img src="assets/svg/robot.svg" style="display:block;" class="btn">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
 
 $(function() {
-    $('img').on('click', function(){
+    $('.btn').on('click', function(){
         alert('hola');
-    });
-    window.addEventListener("load",function() {
+
+        window.addEventListener("load",function() {
         setTimeout(function() {
             window.scrollTo(0, 1);
         }, 1000);
     });
+    });
+    
 });
    
 </script>
