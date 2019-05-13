@@ -21,20 +21,32 @@
 <img src="assets/svg/robot.svg" style="display:block;" class="btn">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script>
-
 $(function() {
-    $('.btn').on('click', function(){
-        alert('hola');
-
-        window.addEventListener("load",function() {
-        setTimeout(function() {
-            window.scrollTo(0, 1);
-        }, 1000);
-    });
-    });
-    
+	// check native support
+	$('#support').text($.fullscreen.isNativelySupported() ? 'supports' : 'doesn\'t support');
+	// open in fullscreen
+	$('#fullscreen .requestfullscreen').click(function() {
+		$('#fullscreen').fullscreen();
+		return false;
+	});
+	// exit fullscreen
+	$('.btn').click(function() {
+		$.fullscreen.exit();
+		return false;
+	});
+	// document's event
+	$(document).bind('fscreenchange', function(e, state, elem) {
+		// if we currently in fullscreen mode
+		if ($.fullscreen.isFullScreen()) {
+			$('#fullscreen .requestfullscreen').hide();
+			$('#fullscreen .exitfullscreen').show();
+		} else {
+			$('#fullscreen .requestfullscreen').show();
+			$('#fullscreen .exitfullscreen').hide();
+		}
+		$('#state').text($.fullscreen.isFullScreen() ? '' : 'not');
+	});
 });
-   
 </script>
 </body>
 </html>
