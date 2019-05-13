@@ -10,5 +10,8 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": ["standalone-fullscreen", "standalone"]
+    "display": "standalone",
+    "orientation": "portrait",
+    "kiosk_enabled": true,
+    "kiosk_only": true
 }
